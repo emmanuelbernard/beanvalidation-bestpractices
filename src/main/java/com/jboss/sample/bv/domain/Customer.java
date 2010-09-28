@@ -58,6 +58,11 @@ public class Customer {
 	private CreditCard defaultCreditCard;
 
 	//TODO Status should be OK for no delays
+	@CheckBlackListStatus(
+			accepted = BlackListStatus.OK,
+			message = "{com.jboss.sample.bv.domain.constraints.CheckBlackListStatus.customer}",
+			groups = NoDelay.class
+	)
 	// use {com.jboss.sample.bv.domain.constraints.CheckBlackListStatus.customer} 
 	public BlackListStatus getStatus() { return status; }
 	public void setStatus(BlackListStatus status) {  this.status = status; }

@@ -25,6 +25,7 @@ package com.jboss.sample.bv.domain;
 
 import com.jboss.sample.bv.domain.constraints.CheckBlackListStatus;
 import com.jboss.sample.bv.domain.constraints.NoDelay;
+import com.jboss.sample.bv.domain.constraints.ZipCode;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

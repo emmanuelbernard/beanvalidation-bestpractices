@@ -39,7 +39,9 @@ import javax.validation.constraints.Size;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.ANNOTATION_TYPE, ElementType.PARAMETER})
 @Constraint( validatedBy = {} )
-//show the difference between @ReportAsSingleViolation and not by commenting it on a second run 
+@Size(min=10, max=10, message = "the order number must have {max} digits")
+@Luhn(message = "the order number looks malformed")
+//show the difference between @ReportAsSingleViolation and not by commenting it on a second run
 @ReportAsSingleViolation
 public @interface OrderNumber {
 	String message() default "{com.jboss.sample.bv.domain.constraints.OrderNumber.message}";
@@ -47,5 +49,9 @@ public @interface OrderNumber {
 	Class<? extends Payload>[] payload() default {};
 
 	//TODO Override attributes
+	@OverridesAttribute.List( {
+			@OverridesAttribute( constraint = Size.class, name="min"),
+			@OverridesAttribute( constraint = Size.class, name="max")
+	})
 	int size();
 }

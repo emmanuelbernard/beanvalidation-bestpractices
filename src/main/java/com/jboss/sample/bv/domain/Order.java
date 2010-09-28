@@ -35,9 +35,7 @@ import com.jboss.sample.bv.domain.constraints.OrderNumber;
  * @author Emmanuel Bernard
  */
 public class Order {
-	@Size(min=10, max=10, message = "the order number must have {max} digits")
-	@Luhn(message = "the order number looks malformed")
-	//TODO create an OrderNumber using composition
+	@OrderNumber( size = 10 )
 	public String getOrderNumber() { return orderNumber; }
 	public void setOrderNumber(String orderNumber) {  this.orderNumber = orderNumber; }
 	private String orderNumber;

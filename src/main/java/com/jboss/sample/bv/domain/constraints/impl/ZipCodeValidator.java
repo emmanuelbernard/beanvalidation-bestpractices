@@ -40,15 +40,22 @@ public class ZipCodeValidator implements ConstraintValidator<ZipCode, Address> {
 	public boolean isValid(Address value, ConstraintValidatorContext context) {
 		if ( value == null ) return true;
 		//TODO disable default error report
+		context.disableDefaultConstraintViolation();
 		String countryName = value.getCountry() == null ? null : value.getCountry().getName();
 		boolean result = true;
 		if (countryName == null) {
 			//TODO build error report "country should not be null"
+			context.buildConstraintViolationWithTemplate( "country should not be null" )
+					.addNode( "country" )
+					.addConstraintViolation();
 			result = false;
 		}
 		String zipCode = value.getZipCode();
 		if ( zipCode == null ) {
 			//TODO build error report "zipCode should not be null"
+			context.buildConstraintViolationWithTemplate( "zipcode should not be null" )
+					.addNode( "zipCode" )
+					.addConstraintViolation();
 			result = false;
 		}
 		if (!result) return false;

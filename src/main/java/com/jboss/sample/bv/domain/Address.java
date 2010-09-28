@@ -30,7 +30,7 @@ import com.jboss.sample.bv.domain.constraints.ZipCode;
 /**
  * @author Emmanuel Bernard
  */
-//TODO create a country sensitive zip code
+@ZipCode
 public class Address {
 	public String getStreet1() { return street1; }
 	public void setStreet1(String street1) {  this.street1 = street1; }

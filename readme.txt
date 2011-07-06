@@ -1,6 +1,9 @@
 Script
 ------
 
+The beginning of the demo can be found at tag demo-start-state
+The end of the demo can be found at tag demo-done-state
+
 + Groups
 Show Order and NoDelay on Customer and Country
 Show StraigntToOrderValidation on Customer
